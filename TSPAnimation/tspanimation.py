@@ -333,7 +333,8 @@ class TSPAnimation:
         pbar = tqdm(total=1, desc="> Creating video...", position=0, leave=True)
 
         # Create parent directory of self.output_name if it doesn't exist
-        os.makedirs(os.path.dirname(self.output_name), exist_ok=True)
+        if os.path.dirname(self.output_name) != "":
+            os.makedirs(os.path.dirname(self.output_name), exist_ok=True)
 
         (
             ffmpeg.input(
